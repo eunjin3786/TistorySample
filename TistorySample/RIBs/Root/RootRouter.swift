@@ -1,18 +1,29 @@
 import RIBs
 
-protocol RootInteractable: Interactable {
+protocol RootInteractable: Interactable, MainListener {
     var router: RootRouting? { get set }
     var listener: RootListener? { get set }
 }
 
 protocol RootViewControllable: ViewControllable {
-    
+    func present(viewController: ViewControllable, animated: Bool)
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
+
+    private let mainBuilder: MainBuildable
     
-    override init(interactor: RootInteractable, viewController: RootViewControllable) {
+    init(interactor: RootInteractable,
+                  viewController: RootViewControllable,
+                  mainBuilder: MainBuildable) {
+        self.mainBuilder = mainBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
+    }
+    
+    func routeToMain() {
+        let mainRouter = mainBuilder.build(withListener: interactor)
+        attachChild(mainRouter)
+        viewController.present(viewController: mainRouter.viewControllable, animated: false)
     }
 }

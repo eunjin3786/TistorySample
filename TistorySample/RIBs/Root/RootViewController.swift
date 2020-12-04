@@ -14,4 +14,10 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
         super.viewDidLoad()
         view.backgroundColor = .yellow
     }
+    
+    func present(viewController: ViewControllable, animated: Bool = true) {
+        let viewController = viewController.uiviewController
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: animated, completion: nil)
+    }
 }

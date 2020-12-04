@@ -2,7 +2,7 @@ import RIBs
 import RxSwift
 
 protocol RootRouting: ViewableRouting {
-    
+    func routeToMain()
 }
 
 protocol RootPresentable: Presentable {
@@ -25,6 +25,7 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
 
     override func didBecomeActive() {
         super.didBecomeActive()
+        router?.routeToMain()
     }
 
     override func willResignActive() {

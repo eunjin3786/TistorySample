@@ -4,7 +4,7 @@ protocol RootDependency: Dependency {
     
 }
 
-final class RootComponent: Component<RootDependency> {
+final class RootComponent: Component<RootDependency>, MainDependency {
     
 }
 
@@ -19,11 +19,13 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
     }
 
     func build() -> LaunchRouting {
-        _ = RootComponent(dependency: dependency)
+        let component = RootComponent(dependency: dependency)
         let viewController = RootViewController()
         let interactor = RootInteractor(presenter: viewController)
 
+        let mainBuilder = MainBuilder(dependency: component)
         return RootRouter(interactor: interactor,
-                          viewController: viewController)
+                          viewController: viewController,
+                          mainBuilder: mainBuilder)
     }
 }
