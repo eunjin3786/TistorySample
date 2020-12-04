@@ -30,4 +30,13 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
     override func willResignActive() {
         super.willResignActive()
     }
+    
+    func selectedTabDidChanged(to tab: Tab) {
+        switch tab {
+        case .home:
+            break
+        case .blog:
+            break
+        }
+    }
 }
