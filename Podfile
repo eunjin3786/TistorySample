@@ -6,5 +6,5 @@ target 'TistorySample' do
   use_frameworks!
 
   # Pods for TistorySample
-  pod 'RIBs'
+  pod 'RIBs', :git=> 'https://github.com/uber/RIBs', :tag => '0.9.2'
 end
