@@ -10,7 +10,6 @@
 		89795976B1D017C5782024AA /* Pods_TistorySample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368F04E06491DE91F53732A4 /* Pods_TistorySample.framework */; };
 		C286BE2C2579E7D5009BF631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C286BE2B2579E7D5009BF631 /* AppDelegate.swift */; };
 		C286BE2E2579E7D5009BF631 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C286BE2D2579E7D5009BF631 /* SceneDelegate.swift */; };
-		C286BE302579E7D5009BF631 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C286BE2F2579E7D5009BF631 /* ViewController.swift */; };
 		C286BE332579E7D5009BF631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C286BE312579E7D5009BF631 /* Main.storyboard */; };
 		C286BE352579E7D8009BF631 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C286BE342579E7D8009BF631 /* Assets.xcassets */; };
 		C286BE382579E7D8009BF631 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C286BE362579E7D8009BF631 /* LaunchScreen.storyboard */; };
@@ -33,7 +32,6 @@
 		C286BE282579E7D5009BF631 /* TistorySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TistorySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C286BE2B2579E7D5009BF631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C286BE2D2579E7D5009BF631 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C286BE2F2579E7D5009BF631 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C286BE322579E7D5009BF631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C286BE342579E7D8009BF631 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C286BE372579E7D8009BF631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,12 +89,11 @@
 		C286BE2A2579E7D5009BF631 /* TistorySample */ = {
 			isa = PBXGroup;
 			children = (
+				C286BEB8257A02C0009BF631 /* App */,
 				C286BE6C2579ECE0009BF631 /* RIBs */,
-				C286BE2B2579E7D5009BF631 /* AppDelegate.swift */,
 				C286BE2D2579E7D5009BF631 /* SceneDelegate.swift */,
-				C286BE2F2579E7D5009BF631 /* ViewController.swift */,
-				C286BE312579E7D5009BF631 /* Main.storyboard */,
 				C286BE342579E7D8009BF631 /* Assets.xcassets */,
+				C286BE312579E7D5009BF631 /* Main.storyboard */,
 				C286BE362579E7D8009BF631 /* LaunchScreen.storyboard */,
 				C286BE392579E7D8009BF631 /* Info.plist */,
 			);
@@ -118,7 +115,6 @@
 		C286BE552579EBF7009BF631 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				C286BE852579EE93009BF631 /* AppComponent.swift */,
 				C286BE6F2579ED81009BF631 /* RootRouter.swift */,
 				C286BE702579ED81009BF631 /* RootViewController.swift */,
 				C286BE712579ED81009BF631 /* RootBuilder.swift */,
@@ -134,6 +130,15 @@
 				C286BE542579EA01009BF631 /* Main */,
 			);
 			path = RIBs;
+			sourceTree = "<group>";
+		};
+		C286BEB8257A02C0009BF631 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C286BE852579EE93009BF631 /* AppComponent.swift */,
+				C286BE2B2579E7D5009BF631 /* AppDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		DD75289D77D09F146A5B9D76 /* Pods */ = {
@@ -266,7 +271,6 @@
 				C286BE762579ED81009BF631 /* RootInteractor.swift in Sources */,
 				C286BE802579ED91009BF631 /* MainBuilder.swift in Sources */,
 				C286BE862579EE93009BF631 /* AppComponent.swift in Sources */,
-				C286BE302579E7D5009BF631 /* ViewController.swift in Sources */,
 				C286BE812579ED91009BF631 /* MainInteractor.swift in Sources */,
 				C286BE2C2579E7D5009BF631 /* AppDelegate.swift in Sources */,
 				C286BE7F2579ED91009BF631 /* MainViewController.swift in Sources */,
