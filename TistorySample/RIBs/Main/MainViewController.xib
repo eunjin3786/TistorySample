@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
                 <outlet property="blogTabButton" destination="wtl-EZ-Ozs" id="6eC-md-kaT"/>
+                <outlet property="contentView" destination="cAr-Zx-NCP" id="vbA-xx-Luk"/>
                 <outlet property="homeTabButton" destination="j6V-Go-F7z" id="SA1-8o-pfN"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jYO-eb-xeE"/>
             </connections>
@@ -26,10 +27,16 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6V-Go-F7z">
                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="30"/>
                             <state key="normal" title="Home"/>
+                            <connections>
+                                <action selector="homeButtonDidTap:" destination="-1" eventType="touchUpInside" id="P9y-ug-IYN"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtl-EZ-Ozs">
                             <rect key="frame" x="187.5" y="0.0" width="187.5" height="30"/>
                             <state key="normal" title="Blog"/>
+                            <connections>
+                                <action selector="blogButtonDidTap:" destination="-1" eventType="touchUpInside" id="WnS-bq-dzm"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -37,13 +44,21 @@
                         <constraint firstAttribute="height" constant="30" id="lze-7U-y8S"/>
                     </constraints>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAr-Zx-NCP">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="637"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2Zu-bd-JgA" secondAttribute="trailing" id="4ZB-dM-3Kh"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2Zu-bd-JgA" secondAttribute="bottom" id="7xT-Bt-4iV"/>
+                <constraint firstItem="cAr-Zx-NCP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Y80-9g-wEf"/>
                 <constraint firstItem="2Zu-bd-JgA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="arf-ph-wXN"/>
+                <constraint firstItem="cAr-Zx-NCP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="guJ-dL-sUn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cAr-Zx-NCP" secondAttribute="trailing" id="qCY-yA-4IF"/>
+                <constraint firstItem="2Zu-bd-JgA" firstAttribute="top" secondItem="cAr-Zx-NCP" secondAttribute="bottom" id="u3Z-7k-vuf"/>
             </constraints>
             <point key="canvasLocation" x="-297" y="78"/>
         </view>

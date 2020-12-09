@@ -4,7 +4,7 @@ protocol MainDependency: Dependency {
     
 }
 
-final class MainComponent: Component<MainDependency> {
+final class MainComponent: Component<MainDependency>, BlogDependency {
     
 }
 
@@ -23,6 +23,9 @@ final class MainBuilder: Builder<MainDependency>, MainBuildable {
         let viewController = MainViewController()
         let interactor = MainInteractor(presenter: viewController)
         interactor.listener = listener
-        return MainRouter(interactor: interactor, viewController: viewController)
+        let blogBuilder = BlogBuilder(dependency: component)
+        return MainRouter(interactor: interactor,
+                          viewController: viewController,
+                          blogBuilder: blogBuilder)
     }
 }

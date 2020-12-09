@@ -2,7 +2,7 @@ import RIBs
 import RxSwift
 
 protocol MainRouting: ViewableRouting {
-    
+    func routeToBlog()
 }
 
 protocol MainPresentable: Presentable {
@@ -36,7 +36,7 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
         case .home:
             break
         case .blog:
-            break
+            router?.routeToBlog()
         }
     }
 }

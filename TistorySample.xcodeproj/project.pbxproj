@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		89795976B1D017C5782024AA /* Pods_TistorySample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368F04E06491DE91F53732A4 /* Pods_TistorySample.framework */; };
+		C27AD0222580F77800410664 /* BlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD01D2580F77800410664 /* BlogRouter.swift */; };
+		C27AD0232580F77800410664 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD01E2580F77800410664 /* BlogViewController.swift */; };
+		C27AD0242580F77800410664 /* BlogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD01F2580F77800410664 /* BlogBuilder.swift */; };
+		C27AD0252580F77800410664 /* BlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD0202580F77800410664 /* BlogInteractor.swift */; };
+		C27AD0262580F77800410664 /* BlogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27AD0212580F77800410664 /* BlogViewController.xib */; };
 		C286BE2C2579E7D5009BF631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C286BE2B2579E7D5009BF631 /* AppDelegate.swift */; };
 		C286BE2E2579E7D5009BF631 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C286BE2D2579E7D5009BF631 /* SceneDelegate.swift */; };
 		C286BE332579E7D5009BF631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C286BE312579E7D5009BF631 /* Main.storyboard */; };
@@ -29,6 +34,11 @@
 		0D62FEC42A0CF8D0887ED6E0 /* Pods-TistorySample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TistorySample.debug.xcconfig"; path = "Target Support Files/Pods-TistorySample/Pods-TistorySample.debug.xcconfig"; sourceTree = "<group>"; };
 		0FEB96F45904E0ACEEE8C0D8 /* Pods-TistorySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TistorySample.release.xcconfig"; path = "Target Support Files/Pods-TistorySample/Pods-TistorySample.release.xcconfig"; sourceTree = "<group>"; };
 		368F04E06491DE91F53732A4 /* Pods_TistorySample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TistorySample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C27AD01D2580F77800410664 /* BlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogRouter.swift; sourceTree = "<group>"; };
+		C27AD01E2580F77800410664 /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
+		C27AD01F2580F77800410664 /* BlogBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogBuilder.swift; sourceTree = "<group>"; };
+		C27AD0202580F77800410664 /* BlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogInteractor.swift; sourceTree = "<group>"; };
+		C27AD0212580F77800410664 /* BlogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlogViewController.xib; sourceTree = "<group>"; };
 		C286BE282579E7D5009BF631 /* TistorySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TistorySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C286BE2B2579E7D5009BF631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C286BE2D2579E7D5009BF631 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +76,18 @@
 				368F04E06491DE91F53732A4 /* Pods_TistorySample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C27AD01C2580F50C00410664 /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+				C27AD01D2580F77800410664 /* BlogRouter.swift */,
+				C27AD01E2580F77800410664 /* BlogViewController.swift */,
+				C27AD01F2580F77800410664 /* BlogBuilder.swift */,
+				C27AD0202580F77800410664 /* BlogInteractor.swift */,
+				C27AD0212580F77800410664 /* BlogViewController.xib */,
+			);
+			path = Blog;
 			sourceTree = "<group>";
 		};
 		C286BE1F2579E7D5009BF631 = {
@@ -126,6 +148,7 @@
 		C286BE6C2579ECE0009BF631 /* RIBs */ = {
 			isa = PBXGroup;
 			children = (
+				C27AD01C2580F50C00410664 /* Blog */,
 				C286BE552579EBF7009BF631 /* Root */,
 				C286BE542579EA01009BF631 /* Main */,
 			);
@@ -212,6 +235,7 @@
 				C286BE382579E7D8009BF631 /* LaunchScreen.storyboard in Resources */,
 				C286BE352579E7D8009BF631 /* Assets.xcassets in Resources */,
 				C286BE332579E7D5009BF631 /* Main.storyboard in Resources */,
+				C27AD0262580F77800410664 /* BlogViewController.xib in Resources */,
 				C286BE822579ED91009BF631 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,15 +290,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C286BE742579ED81009BF631 /* RootViewController.swift in Sources */,
+				C27AD0242580F77800410664 /* BlogBuilder.swift in Sources */,
 				C286BE7E2579ED91009BF631 /* MainRouter.swift in Sources */,
+				C27AD0232580F77800410664 /* BlogViewController.swift in Sources */,
 				C286BE732579ED81009BF631 /* RootRouter.swift in Sources */,
 				C286BE762579ED81009BF631 /* RootInteractor.swift in Sources */,
+				C27AD0222580F77800410664 /* BlogRouter.swift in Sources */,
 				C286BE802579ED91009BF631 /* MainBuilder.swift in Sources */,
 				C286BE862579EE93009BF631 /* AppComponent.swift in Sources */,
 				C286BE812579ED91009BF631 /* MainInteractor.swift in Sources */,
 				C286BE2C2579E7D5009BF631 /* AppDelegate.swift in Sources */,
 				C286BE7F2579ED91009BF631 /* MainViewController.swift in Sources */,
 				C286BE2E2579E7D5009BF631 /* SceneDelegate.swift in Sources */,
+				C27AD0252580F77800410664 /* BlogInteractor.swift in Sources */,
 				C286BE752579ED81009BF631 /* RootBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

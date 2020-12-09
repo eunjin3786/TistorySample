@@ -7,4 +7,5 @@ target 'TistorySample' do
 
   # Pods for TistorySample
   pod 'RIBs', :git=> 'https://github.com/uber/RIBs', :tag => '0.9.2'
+  pod 'SnapKit'
 end
