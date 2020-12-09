@@ -22,7 +22,7 @@ final class MainRouter: ViewableRouter<MainInteractable, MainViewControllable>, 
     }
     
     func routeToBlog() {
-        let blogRouter = blogBuilder.build(withListener: interactor)
+        let blogRouter = blogBuilder.build(withListener: interactor, owner: .me)
         attachChild(blogRouter)
         viewController.show(viewController: blogRouter.viewControllable)
     }

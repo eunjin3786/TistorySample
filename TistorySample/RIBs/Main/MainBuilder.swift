@@ -5,7 +5,7 @@ protocol MainDependency: Dependency {
 }
 
 final class MainComponent: Component<MainDependency>, BlogDependency {
-    
+
 }
 
 protocol MainBuildable: Buildable {

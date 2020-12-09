@@ -13,6 +13,12 @@
 		C27AD0242580F77800410664 /* BlogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD01F2580F77800410664 /* BlogBuilder.swift */; };
 		C27AD0252580F77800410664 /* BlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD0202580F77800410664 /* BlogInteractor.swift */; };
 		C27AD0262580F77800410664 /* BlogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27AD0212580F77800410664 /* BlogViewController.xib */; };
+		C27AD03A2580FBC700410664 /* MyBlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD0372580FBC700410664 /* MyBlogRouter.swift */; };
+		C27AD03B2580FBC700410664 /* MyBlogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD0382580FBC700410664 /* MyBlogBuilder.swift */; };
+		C27AD03C2580FBC700410664 /* MyBlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD0392580FBC700410664 /* MyBlogInteractor.swift */; };
+		C27AD0412580FC1E00410664 /* OtherBlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD03E2580FC1E00410664 /* OtherBlogRouter.swift */; };
+		C27AD0422580FC1E00410664 /* OtherBlogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD03F2580FC1E00410664 /* OtherBlogBuilder.swift */; };
+		C27AD0432580FC1E00410664 /* OtherBlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD0402580FC1E00410664 /* OtherBlogInteractor.swift */; };
 		C286BE2C2579E7D5009BF631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C286BE2B2579E7D5009BF631 /* AppDelegate.swift */; };
 		C286BE2E2579E7D5009BF631 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C286BE2D2579E7D5009BF631 /* SceneDelegate.swift */; };
 		C286BE332579E7D5009BF631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C286BE312579E7D5009BF631 /* Main.storyboard */; };
@@ -39,6 +45,12 @@
 		C27AD01F2580F77800410664 /* BlogBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogBuilder.swift; sourceTree = "<group>"; };
 		C27AD0202580F77800410664 /* BlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogInteractor.swift; sourceTree = "<group>"; };
 		C27AD0212580F77800410664 /* BlogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlogViewController.xib; sourceTree = "<group>"; };
+		C27AD0372580FBC700410664 /* MyBlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBlogRouter.swift; sourceTree = "<group>"; };
+		C27AD0382580FBC700410664 /* MyBlogBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBlogBuilder.swift; sourceTree = "<group>"; };
+		C27AD0392580FBC700410664 /* MyBlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBlogInteractor.swift; sourceTree = "<group>"; };
+		C27AD03E2580FC1E00410664 /* OtherBlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherBlogRouter.swift; sourceTree = "<group>"; };
+		C27AD03F2580FC1E00410664 /* OtherBlogBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherBlogBuilder.swift; sourceTree = "<group>"; };
+		C27AD0402580FC1E00410664 /* OtherBlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherBlogInteractor.swift; sourceTree = "<group>"; };
 		C286BE282579E7D5009BF631 /* TistorySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TistorySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C286BE2B2579E7D5009BF631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C286BE2D2579E7D5009BF631 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +93,7 @@
 		C27AD01C2580F50C00410664 /* Blog */ = {
 			isa = PBXGroup;
 			children = (
+				C27AD0342580FBA300410664 /* Child */,
 				C27AD01D2580F77800410664 /* BlogRouter.swift */,
 				C27AD01E2580F77800410664 /* BlogViewController.swift */,
 				C27AD01F2580F77800410664 /* BlogBuilder.swift */,
@@ -88,6 +101,35 @@
 				C27AD0212580F77800410664 /* BlogViewController.xib */,
 			);
 			path = Blog;
+			sourceTree = "<group>";
+		};
+		C27AD0342580FBA300410664 /* Child */ = {
+			isa = PBXGroup;
+			children = (
+				C27AD0362580FBB400410664 /* OtherBlog */,
+				C27AD0352580FBAF00410664 /* MyBlog */,
+			);
+			path = Child;
+			sourceTree = "<group>";
+		};
+		C27AD0352580FBAF00410664 /* MyBlog */ = {
+			isa = PBXGroup;
+			children = (
+				C27AD0372580FBC700410664 /* MyBlogRouter.swift */,
+				C27AD0382580FBC700410664 /* MyBlogBuilder.swift */,
+				C27AD0392580FBC700410664 /* MyBlogInteractor.swift */,
+			);
+			path = MyBlog;
+			sourceTree = "<group>";
+		};
+		C27AD0362580FBB400410664 /* OtherBlog */ = {
+			isa = PBXGroup;
+			children = (
+				C27AD03E2580FC1E00410664 /* OtherBlogRouter.swift */,
+				C27AD03F2580FC1E00410664 /* OtherBlogBuilder.swift */,
+				C27AD0402580FC1E00410664 /* OtherBlogInteractor.swift */,
+			);
+			path = OtherBlog;
 			sourceTree = "<group>";
 		};
 		C286BE1F2579E7D5009BF631 = {
@@ -294,15 +336,21 @@
 				C286BE7E2579ED91009BF631 /* MainRouter.swift in Sources */,
 				C27AD0232580F77800410664 /* BlogViewController.swift in Sources */,
 				C286BE732579ED81009BF631 /* RootRouter.swift in Sources */,
+				C27AD03B2580FBC700410664 /* MyBlogBuilder.swift in Sources */,
+				C27AD0422580FC1E00410664 /* OtherBlogBuilder.swift in Sources */,
 				C286BE762579ED81009BF631 /* RootInteractor.swift in Sources */,
 				C27AD0222580F77800410664 /* BlogRouter.swift in Sources */,
 				C286BE802579ED91009BF631 /* MainBuilder.swift in Sources */,
+				C27AD03A2580FBC700410664 /* MyBlogRouter.swift in Sources */,
 				C286BE862579EE93009BF631 /* AppComponent.swift in Sources */,
 				C286BE812579ED91009BF631 /* MainInteractor.swift in Sources */,
+				C27AD0412580FC1E00410664 /* OtherBlogRouter.swift in Sources */,
 				C286BE2C2579E7D5009BF631 /* AppDelegate.swift in Sources */,
 				C286BE7F2579ED91009BF631 /* MainViewController.swift in Sources */,
 				C286BE2E2579E7D5009BF631 /* SceneDelegate.swift in Sources */,
 				C27AD0252580F77800410664 /* BlogInteractor.swift in Sources */,
+				C27AD0432580FC1E00410664 /* OtherBlogInteractor.swift in Sources */,
+				C27AD03C2580FBC700410664 /* MyBlogInteractor.swift in Sources */,
 				C286BE752579ED81009BF631 /* RootBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

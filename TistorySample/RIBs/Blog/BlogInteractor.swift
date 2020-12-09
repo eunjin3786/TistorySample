@@ -2,7 +2,8 @@ import RIBs
 import RxSwift
 
 protocol BlogRouting: ViewableRouting {
-    
+    func routeToMyBlog()
+    func routeToOtherBlog()
 }
 
 protocol BlogPresentable: Presentable {
@@ -18,9 +19,16 @@ final class BlogInteractor: PresentableInteractor<BlogPresentable>, BlogInteract
     weak var router: BlogRouting?
     weak var listener: BlogListener?
 
-    override init(presenter: BlogPresentable) {
+    init(presenter: BlogPresentable, owner: Owner) {
         super.init(presenter: presenter)
         presenter.listener = self
+        
+        switch owner {
+        case .me:
+            router?.routeToMyBlog()
+        case .other:
+            router?.routeToOtherBlog()
+        }
     }
 
     override func didBecomeActive() {
