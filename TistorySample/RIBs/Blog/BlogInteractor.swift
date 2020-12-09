@@ -8,21 +8,29 @@ protocol BlogRouting: ViewableRouting {
 
 protocol BlogPresentable: Presentable {
     var listener: BlogPresentableListener? { get set }
+    func showMyBlog()
+    func showOtherBlog()
 }
 
 protocol BlogListener: class {
     
 }
 
-final class BlogInteractor: PresentableInteractor<BlogPresentable>, BlogInteractable, BlogPresentableListener {
+final class BlogInteractor: PresentableInteractor<BlogPresentable>, BlogInteractable {
 
     weak var router: BlogRouting?
     weak var listener: BlogListener?
+    
+    private let owner: Owner
 
     init(presenter: BlogPresentable, owner: Owner) {
+        self.owner = owner
         super.init(presenter: presenter)
         presenter.listener = self
-        
+    }
+
+    override func didBecomeActive() {
+        super.didBecomeActive()
         switch owner {
         case .me:
             router?.routeToMyBlog()
@@ -31,11 +39,19 @@ final class BlogInteractor: PresentableInteractor<BlogPresentable>, BlogInteract
         }
     }
 
-    override func didBecomeActive() {
-        super.didBecomeActive()
-    }
-
     override func willResignActive() {
         super.willResignActive()
+    }
+}
+
+extension BlogInteractor: BlogPresentableListener {
+    
+    func viewDidLoad() {
+        switch owner {
+        case .me:
+            presenter.showMyBlog()
+        case .other:
+            presenter.showOtherBlog()
+        }
     }
 }

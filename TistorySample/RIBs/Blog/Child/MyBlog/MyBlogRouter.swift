@@ -19,6 +19,11 @@ final class MyBlogRouter: Router<MyBlogInteractable>, MyBlogRouting {
         interactor.router = self
     }
     
+    override func didLoad() {
+        super.didLoad()
+        viewController
+    }
+    
     func cleanupViews() {
         
     }
