@@ -8,8 +8,6 @@ protocol BlogRouting: ViewableRouting {
 
 protocol BlogPresentable: Presentable {
     var listener: BlogPresentableListener? { get set }
-    func showMyBlog()
-    func showOtherBlog()
 }
 
 protocol BlogListener: class {
@@ -45,13 +43,5 @@ final class BlogInteractor: PresentableInteractor<BlogPresentable>, BlogInteract
 }
 
 extension BlogInteractor: BlogPresentableListener {
-    
-    func viewDidLoad() {
-        switch owner {
-        case .me:
-            presenter.showMyBlog()
-        case .other:
-            presenter.showOtherBlog()
-        }
-    }
+
 }
