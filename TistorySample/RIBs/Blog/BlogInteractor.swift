@@ -4,10 +4,14 @@ import RxSwift
 protocol BlogRouting: ViewableRouting {
     func routeToMyBlog()
     func routeToOtherBlog()
+    
+    func routeToBlogSetting()
 }
 
 protocol BlogPresentable: Presentable {
     var listener: BlogPresentableListener? { get set }
+    func showMyBlog(with posts: [String])
+    func showOtherBlog(with posts: [String])
 }
 
 protocol BlogListener: class {
@@ -40,8 +44,25 @@ final class BlogInteractor: PresentableInteractor<BlogPresentable>, BlogInteract
     override func willResignActive() {
         super.willResignActive()
     }
+    
+    // MARK: - MyBlogListener
+    func myPostsFetched(posts: [String]) {
+        presenter.showMyBlog(with: posts)
+    }
+    
+    // MARK: - OtherBlogListener
+    func otherPostsFetched(posts: [String]) {
+        presenter.showOtherBlog(with: posts)
+    }
 }
 
 extension BlogInteractor: BlogPresentableListener {
 
+    func blogSettingButtonDidTap() {
+        router?.routeToBlogSetting()
+    }
+    
+    func blogSubscriptionButtonDidTap() {
+        
+    }
 }

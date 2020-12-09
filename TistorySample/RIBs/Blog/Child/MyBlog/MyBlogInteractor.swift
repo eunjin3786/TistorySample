@@ -6,7 +6,7 @@ protocol MyBlogRouting: Routing {
 }
 
 protocol MyBlogListener: class {
-    
+    func myPostsFetched(posts: [String])
 }
 
 final class MyBlogInteractor: Interactor, MyBlogInteractable {
@@ -18,6 +18,9 @@ final class MyBlogInteractor: Interactor, MyBlogInteractable {
 
     override func didBecomeActive() {
         super.didBecomeActive()
+        
+        let posts = ["내 글1", "내 글2"]
+        listener?.myPostsFetched(posts: posts)
     }
 
     override func willResignActive() {

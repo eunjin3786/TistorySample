@@ -5,7 +5,7 @@ protocol BlogInteractable: Interactable, MyBlogListener, OtherBlogListener {
     var listener: BlogListener? { get set }
 }
 
-protocol BlogViewControllable: ViewControllable, MyBlogViewControllable, OtherBlogViewControllable {
+protocol BlogViewControllable: MyBlogViewControllable, OtherBlogViewControllable {
     
 }
 
@@ -13,6 +13,8 @@ final class BlogRouter: ViewableRouter<BlogInteractable, BlogViewControllable>, 
 
     private let myBlogBuilder: MyBlogBuildable
     private let otherBlogBuilder: OtherBlogBuildable
+    
+    var myBlogRouter: MyBlogRouting?
     
     init(interactor: BlogInteractable,
          viewController: BlogViewControllable,
@@ -29,12 +31,19 @@ final class BlogRouter: ViewableRouter<BlogInteractable, BlogViewControllable>, 
     }
     
     func routeToMyBlog() {
-        let myBlogRouter = myBlogBuilder.build(withListener: interactor)
-        attachChild(myBlogRouter)
+        if myBlogRouter == nil {
+            let myBlogRouter = myBlogBuilder.build(withListener: interactor)
+            self.myBlogRouter = myBlogRouter
+            attachChild(myBlogRouter)
+        }
     }
     
     func routeToOtherBlog() {
         let otherBlogRouter = otherBlogBuilder.build(withListener: interactor)
         attachChild(otherBlogRouter)
+    }
+    
+    func routeToBlogSetting() {
+        
     }
 }

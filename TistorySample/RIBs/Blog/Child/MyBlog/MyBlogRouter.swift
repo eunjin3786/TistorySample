@@ -6,7 +6,7 @@ protocol MyBlogInteractable: Interactable {
 }
 
 protocol MyBlogViewControllable: ViewControllable {
-    func showBlogSetting()
+
 }
 
 final class MyBlogRouter: Router<MyBlogInteractable>, MyBlogRouting {
@@ -21,7 +21,6 @@ final class MyBlogRouter: Router<MyBlogInteractable>, MyBlogRouting {
     
     override func didLoad() {
         super.didLoad()
-        viewController.showBlogSetting()
     }
     
     func cleanupViews() {
