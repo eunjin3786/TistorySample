@@ -25,10 +25,19 @@ final class BlogViewController: UIViewController, BlogPresentable, BlogViewContr
         tableView.dataSource = self
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "cell")
     }
+
+}
+
+// MARK: - MyBlog
+extension BlogViewController {
     
     func showMyBlog() {
         setupBlogSettingButton()
     }
+}
+
+// MARK: - OtherBlog
+extension BlogViewController {
     
     func showOtherBlog(isSubscribed: Bool) {
         setupBlogSubscriptionButton(isSubscribed: isSubscribed)
@@ -75,7 +84,9 @@ final class BlogViewController: UIViewController, BlogPresentable, BlogViewContr
     }
 }
 
+// MARK: - UITableViewDataSource
 extension BlogViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listener?.posts.count ?? 0
     }
