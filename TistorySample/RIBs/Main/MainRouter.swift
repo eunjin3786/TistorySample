@@ -13,6 +13,8 @@ final class MainRouter: ViewableRouter<MainInteractable, MainViewControllable>, 
 
     private let blogBuilder: BlogBuildable
     
+    private var blogRouter: BlogRouting?
+    
     init(interactor: MainInteractable,
          viewController: MainViewControllable,
          blogBuilder: BlogBuildable) {
@@ -22,8 +24,11 @@ final class MainRouter: ViewableRouter<MainInteractable, MainViewControllable>, 
     }
     
     func routeToBlog() {
-        let blogRouter = blogBuilder.build(withListener: interactor, owner: .other)
-        attachChild(blogRouter)
-        viewController.show(viewController: blogRouter.viewControllable)
+        if blogRouter == nil {
+            let blogRouter = blogBuilder.build(withListener: interactor, owner: .other)
+            self.blogRouter = blogRouter
+            attachChild(blogRouter)
+            viewController.show(viewController: blogRouter.viewControllable)
+        }
     }
 }
