@@ -29,6 +29,7 @@ final class MainViewController: UIViewController, MainPresentable, MainViewContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedTab = .home
     }
     
     @IBAction func homeButtonDidTap(_ sender: Any) {

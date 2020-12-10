@@ -2,6 +2,7 @@ import RIBs
 import RxSwift
 
 protocol MainRouting: ViewableRouting {
+    func routeToHome()
     func routeToBlog()
 }
 
@@ -34,7 +35,7 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
     func selectedTabDidChanged(to tab: Tab) {
         switch tab {
         case .home:
-            break
+            router?.routeToHome()
         case .blog:
             router?.routeToBlog()
         }
