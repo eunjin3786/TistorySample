@@ -15,6 +15,11 @@
 		C266E2642581EC1A0047C64F /* OtherPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E2612581EC1A0047C64F /* OtherPostRouter.swift */; };
 		C266E2652581EC1A0047C64F /* OtherPostBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E2622581EC1A0047C64F /* OtherPostBuilder.swift */; };
 		C266E2662581EC1A0047C64F /* OtherPostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E2632581EC1A0047C64F /* OtherPostInteractor.swift */; };
+		C266E26E2582034A0047C64F /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E2692582034A0047C64F /* PostRouter.swift */; };
+		C266E26F2582034A0047C64F /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E26A2582034A0047C64F /* PostViewController.swift */; };
+		C266E2702582034A0047C64F /* PostBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E26B2582034A0047C64F /* PostBuilder.swift */; };
+		C266E2712582034A0047C64F /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E26C2582034A0047C64F /* PostInteractor.swift */; };
+		C266E2722582034A0047C64F /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C266E26D2582034A0047C64F /* PostViewController.xib */; };
 		C27AD0222580F77800410664 /* BlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD01D2580F77800410664 /* BlogRouter.swift */; };
 		C27AD0232580F77800410664 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD01E2580F77800410664 /* BlogViewController.swift */; };
 		C27AD0242580F77800410664 /* BlogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD01F2580F77800410664 /* BlogBuilder.swift */; };
@@ -58,6 +63,11 @@
 		C266E2612581EC1A0047C64F /* OtherPostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPostRouter.swift; sourceTree = "<group>"; };
 		C266E2622581EC1A0047C64F /* OtherPostBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPostBuilder.swift; sourceTree = "<group>"; };
 		C266E2632581EC1A0047C64F /* OtherPostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPostInteractor.swift; sourceTree = "<group>"; };
+		C266E2692582034A0047C64F /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
+		C266E26A2582034A0047C64F /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		C266E26B2582034A0047C64F /* PostBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBuilder.swift; sourceTree = "<group>"; };
+		C266E26C2582034A0047C64F /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
+		C266E26D2582034A0047C64F /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		C27AD01D2580F77800410664 /* BlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogRouter.swift; sourceTree = "<group>"; };
 		C27AD01E2580F77800410664 /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		C27AD01F2580F77800410664 /* BlogBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogBuilder.swift; sourceTree = "<group>"; };
@@ -116,6 +126,11 @@
 			isa = PBXGroup;
 			children = (
 				C266E2572581EBA90047C64F /* Child */,
+				C266E2692582034A0047C64F /* PostRouter.swift */,
+				C266E26A2582034A0047C64F /* PostViewController.swift */,
+				C266E26B2582034A0047C64F /* PostBuilder.swift */,
+				C266E26C2582034A0047C64F /* PostInteractor.swift */,
+				C266E26D2582034A0047C64F /* PostViewController.xib */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -353,6 +368,7 @@
 				C27AD0262580F77800410664 /* BlogViewController.xib in Resources */,
 				C286BE822579ED91009BF631 /* MainViewController.xib in Resources */,
 				C27AD0562581B08800410664 /* HomeViewController.xib in Resources */,
+				C266E2722582034A0047C64F /* PostViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,19 +434,23 @@
 				C266E25F2581EBFF0047C64F /* MyPostInteractor.swift in Sources */,
 				C266E2652581EC1A0047C64F /* OtherPostBuilder.swift in Sources */,
 				C27AD0552581B08800410664 /* HomeInteractor.swift in Sources */,
+				C266E2702582034A0047C64F /* PostBuilder.swift in Sources */,
 				C286BE762579ED81009BF631 /* RootInteractor.swift in Sources */,
 				C27AD0222580F77800410664 /* BlogRouter.swift in Sources */,
 				C286BE802579ED91009BF631 /* MainBuilder.swift in Sources */,
 				C27AD03A2580FBC700410664 /* MyBlogRouter.swift in Sources */,
 				C27AD0542581B08800410664 /* HomeBuilder.swift in Sources */,
+				C266E26E2582034A0047C64F /* PostRouter.swift in Sources */,
 				C286BE862579EE93009BF631 /* AppComponent.swift in Sources */,
 				C286BE812579ED91009BF631 /* MainInteractor.swift in Sources */,
+				C266E26F2582034A0047C64F /* PostViewController.swift in Sources */,
 				C266E2642581EC1A0047C64F /* OtherPostRouter.swift in Sources */,
 				C27AD0412580FC1E00410664 /* OtherBlogRouter.swift in Sources */,
 				C286BE2C2579E7D5009BF631 /* AppDelegate.swift in Sources */,
 				C266E2662581EC1A0047C64F /* OtherPostInteractor.swift in Sources */,
 				C286BE7F2579ED91009BF631 /* MainViewController.swift in Sources */,
 				C27AD0252580F77800410664 /* BlogInteractor.swift in Sources */,
+				C266E2712582034A0047C64F /* PostInteractor.swift in Sources */,
 				C266E2532581DAD70047C64F /* RIBsExtensions.swift in Sources */,
 				C27AD0432580FC1E00410664 /* OtherBlogInteractor.swift in Sources */,
 				C27AD03C2580FBC700410664 /* MyBlogInteractor.swift in Sources */,
