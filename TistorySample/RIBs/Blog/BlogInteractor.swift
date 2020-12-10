@@ -4,14 +4,13 @@ import RxSwift
 protocol BlogRouting: ViewableRouting {
     func routeToMyBlog()
     func routeToOtherBlog()
-    
-    func routeToBlogSetting()
 }
 
 protocol BlogPresentable: Presentable {
     var listener: BlogPresentableListener? { get set }
     func showMyBlog(with posts: [String])
-    func showOtherBlog(with posts: [String])
+    func showOtherBlog(with posts: [String], isSubscribed: Bool)
+    func toggleSubscription(to isSubscribed: Bool)
 }
 
 protocol BlogListener: class {
@@ -23,22 +22,20 @@ final class BlogInteractor: PresentableInteractor<BlogPresentable>, BlogInteract
     weak var router: BlogRouting?
     weak var listener: BlogListener?
     
-    private let owner: Owner
+    private let myBlogEventStream: PublishSubject<MyBlogEvent>
+    private let otherBlogEventStream: PublishSubject<OtherBlogEvent>
 
-    init(presenter: BlogPresentable, owner: Owner) {
-        self.owner = owner
+    init(presenter: BlogPresentable,
+         myBlogEventStream: PublishSubject<MyBlogEvent>,
+         otherBlogEventStream: PublishSubject<OtherBlogEvent>) {
+        self.myBlogEventStream = myBlogEventStream
+        self.otherBlogEventStream = otherBlogEventStream
         super.init(presenter: presenter)
         presenter.listener = self
     }
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        switch owner {
-        case .me:
-            router?.routeToMyBlog()
-        case .other:
-            router?.routeToOtherBlog()
-        }
     }
 
     override func willResignActive() {
@@ -46,23 +43,27 @@ final class BlogInteractor: PresentableInteractor<BlogPresentable>, BlogInteract
     }
     
     // MARK: - MyBlogListener
-    func myPostsFetched(posts: [String]) {
+    func myBlogInfoFetched(posts: [String]) {
         presenter.showMyBlog(with: posts)
     }
     
     // MARK: - OtherBlogListener
-    func otherPostsFetched(posts: [String]) {
-        presenter.showOtherBlog(with: posts)
+    func otherBlogInfoFetched(posts: [String], isSubscribed: Bool) {
+        presenter.showOtherBlog(with: posts, isSubscribed: isSubscribed)
+    }
+    
+    func blogSubscriptionChanged(to isSubscribed: Bool) {
+        presenter.toggleSubscription(to: isSubscribed)
     }
 }
 
 extension BlogInteractor: BlogPresentableListener {
 
     func blogSettingButtonDidTap() {
-        router?.routeToBlogSetting()
+        myBlogEventStream.onNext(.openSetting)
     }
     
-    func blogSubscriptionButtonDidTap() {
-        
+    func blogSubscriptionToggled() {
+        otherBlogEventStream.onNext(.toggleSubscription)
     }
 }

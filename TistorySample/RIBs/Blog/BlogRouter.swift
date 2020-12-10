@@ -14,12 +14,17 @@ final class BlogRouter: ViewableRouter<BlogInteractable, BlogViewControllable>, 
     private let myBlogBuilder: MyBlogBuildable
     private let otherBlogBuilder: OtherBlogBuildable
     
-    var myBlogRouter: MyBlogRouting?
+    private let owner: Owner
+    
+    private var myBlogRouter: MyBlogRouting?
+    private var otherBlogRouter: OtherBlogRouting?
     
     init(interactor: BlogInteractable,
          viewController: BlogViewControllable,
+         owner: Owner,
          myBlogBuilder: MyBlogBuildable,
          otherBlogBuilder: OtherBlogBuildable) {
+        self.owner = owner
         self.myBlogBuilder = myBlogBuilder
         self.otherBlogBuilder = otherBlogBuilder
         super.init(interactor: interactor, viewController: viewController)
@@ -28,6 +33,12 @@ final class BlogRouter: ViewableRouter<BlogInteractable, BlogViewControllable>, 
     
     override func didLoad() {
         super.didLoad()
+        switch owner {
+        case .me:
+            routeToMyBlog()
+        case .other:
+            routeToOtherBlog()
+        }
     }
     
     func routeToMyBlog() {
@@ -39,11 +50,9 @@ final class BlogRouter: ViewableRouter<BlogInteractable, BlogViewControllable>, 
     }
     
     func routeToOtherBlog() {
-        let otherBlogRouter = otherBlogBuilder.build(withListener: interactor)
-        attachChild(otherBlogRouter)
-    }
-    
-    func routeToBlogSetting() {
-        
+        if otherBlogRouter == nil {
+            let otherBlogRouter = otherBlogBuilder.build(withListener: interactor)
+            attachChild(otherBlogRouter)
+        }
     }
 }

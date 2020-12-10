@@ -26,4 +26,12 @@ final class MyBlogRouter: Router<MyBlogInteractable>, MyBlogRouting {
     func cleanupViews() {
         
     }
+    
+    func routeToBlogSetting() {
+        
+    }
+    
+    func routeToBlogStatistics() {
+        
+    }
 }
