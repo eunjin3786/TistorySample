@@ -29,6 +29,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3w-6H-tRT">
                             <rect key="frame" x="0.0" y="39.5" width="39" height="30"/>
                             <state key="normal" title="죠르디"/>
+                            <connections>
+                                <action selector="mySubscriberDidTap:" destination="-1" eventType="touchUpInside" id="Ict-Zn-eBh"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

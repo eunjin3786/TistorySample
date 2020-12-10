@@ -29,7 +29,14 @@ final class MainViewController: UIViewController, MainPresentable, MainViewContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTransparentNavigation()
         selectedTab = .home
+    }
+    
+    private func setupTransparentNavigation() {
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     @IBAction func homeButtonDidTap(_ sender: Any) {

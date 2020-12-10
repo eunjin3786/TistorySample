@@ -2,7 +2,7 @@ import RIBs
 import RxSwift
 
 protocol HomeRouting: ViewableRouting {
-    
+    func routeToOtherBlog()
 }
 
 protocol HomePresentable: Presentable {
@@ -13,7 +13,7 @@ protocol HomeListener: class {
     
 }
 
-final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteractable, HomePresentableListener {
+final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteractable {
 
     weak var router: HomeRouting?
     weak var listener: HomeListener?
@@ -29,5 +29,12 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
 
     override func willResignActive() {
         super.willResignActive()
+    }
+}
+
+extension HomeInteractor: HomePresentableListener {
+    
+    func mySubscriberDidTap() {
+        router?.routeToOtherBlog()
     }
 }
