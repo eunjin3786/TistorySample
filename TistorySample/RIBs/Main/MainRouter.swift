@@ -25,7 +25,7 @@ final class MainRouter: ViewableRouter<MainInteractable, MainViewControllable>, 
         self.homeBuilder = homeBuilder
         self.blogBuilder = blogBuilder
         self.homeRouter = homeBuilder.build(withListener: interactor)
-        self.blogRouter = blogBuilder.build(withListener: interactor, owner: .me)
+        self.blogRouter = blogBuilder.build(withListener: interactor)
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }

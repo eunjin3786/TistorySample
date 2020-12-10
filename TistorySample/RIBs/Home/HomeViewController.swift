@@ -17,4 +17,8 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
     @IBAction func mySubscriberDidTap(_ sender: Any) {
         listener?.mySubscriberDidTap()
     }
+    
+    func push(viewController: ViewControllable) {
+        self.navigationController?.pushViewController(viewController.uiviewController, animated: true)
+    }
 }

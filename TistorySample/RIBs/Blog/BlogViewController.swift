@@ -35,7 +35,7 @@ final class BlogViewController: UIViewController, BlogPresentable, BlogViewContr
     }
     
     func toggleSubscription(to isSubscribed: Bool) {
-        subscriptionButton?.setTitle(isSubscribed ? "블로그 구독" : "블로그 구독 취소", for: .normal)
+        subscriptionButton?.setTitle(isSubscribed ? "블로그 구독 취소" : "블로그 구독", for: .normal)
     }
     
     private func setupBlogSettingButton() {
@@ -58,7 +58,6 @@ final class BlogViewController: UIViewController, BlogPresentable, BlogViewContr
     private func setupBlogSubscriptionButton(isSubscribed: Bool) {
         let button = UIButton()
         button.backgroundColor = .gray
-        button.setTitle(isSubscribed ? "블로그 구독" : "블로그 구독 취소", for: .normal)
         view.addSubview(button)
         button.snp.makeConstraints { (maker) in
             maker.trailing.equalToSuperview()
@@ -66,6 +65,8 @@ final class BlogViewController: UIViewController, BlogPresentable, BlogViewContr
         }
         button.addTarget(self, action: #selector(toggleBlogSubscriptionDidTap), for: .touchUpInside)
         subscriptionButton = button
+        
+        toggleSubscription(to: isSubscribed)
     }
     
     @objc

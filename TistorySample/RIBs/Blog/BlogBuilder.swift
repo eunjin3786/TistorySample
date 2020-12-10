@@ -34,16 +34,19 @@ final class BlogComponent: Component<BlogDependency>, MyBlogDependency, OtherBlo
 }
 
 protocol BlogBuildable: Buildable {
-    func build(withListener listener: BlogListener, owner: Owner) -> BlogRouting
+    func build(withListener listener: BlogListener) -> BlogRouting
 }
 
 final class BlogBuilder: Builder<BlogDependency>, BlogBuildable {
 
-    override init(dependency: BlogDependency) {
+    private let owner: Owner
+    
+    init(dependency: BlogDependency, owner: Owner) {
+        self.owner = owner
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: BlogListener, owner: Owner) -> BlogRouting {
+    func build(withListener listener: BlogListener) -> BlogRouting {
         let viewController = BlogViewController()
         let component = BlogComponent(dependency: dependency, owner: owner, viewController: viewController)
         let interactor = BlogInteractor(presenter: viewController,

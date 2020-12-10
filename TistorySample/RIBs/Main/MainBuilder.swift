@@ -24,7 +24,7 @@ final class MainBuilder: Builder<MainDependency>, MainBuildable {
         let interactor = MainInteractor(presenter: viewController)
         interactor.listener = listener
         let homeBuilder = HomeBuilder(dependency: component)
-        let blogBuilder = BlogBuilder(dependency: component)
+        let blogBuilder = BlogBuilder(dependency: component, owner: .me)
         return MainRouter(interactor: interactor,
                           viewController: viewController,
                           homeBuilder: homeBuilder,
