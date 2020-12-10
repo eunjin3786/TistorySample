@@ -21,6 +21,10 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         interactor.router = self
     }
     
+    override func didLoad() {
+        super.didLoad()
+    }
+    
     func routeToMain() {
         let mainRouter = mainBuilder.build(withListener: interactor)
         attachChild(mainRouter)

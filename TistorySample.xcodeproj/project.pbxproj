@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		89795976B1D017C5782024AA /* Pods_TistorySample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368F04E06491DE91F53732A4 /* Pods_TistorySample.framework */; };
 		C266E2532581DAD70047C64F /* RIBsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E2522581DAD70047C64F /* RIBsExtensions.swift */; };
+		C266E25D2581EBFF0047C64F /* MyPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E25A2581EBFF0047C64F /* MyPostRouter.swift */; };
+		C266E25E2581EBFF0047C64F /* MyPostBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E25B2581EBFF0047C64F /* MyPostBuilder.swift */; };
+		C266E25F2581EBFF0047C64F /* MyPostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E25C2581EBFF0047C64F /* MyPostInteractor.swift */; };
+		C266E2642581EC1A0047C64F /* OtherPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E2612581EC1A0047C64F /* OtherPostRouter.swift */; };
+		C266E2652581EC1A0047C64F /* OtherPostBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E2622581EC1A0047C64F /* OtherPostBuilder.swift */; };
+		C266E2662581EC1A0047C64F /* OtherPostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266E2632581EC1A0047C64F /* OtherPostInteractor.swift */; };
 		C27AD0222580F77800410664 /* BlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD01D2580F77800410664 /* BlogRouter.swift */; };
 		C27AD0232580F77800410664 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD01E2580F77800410664 /* BlogViewController.swift */; };
 		C27AD0242580F77800410664 /* BlogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AD01F2580F77800410664 /* BlogBuilder.swift */; };
@@ -47,6 +53,12 @@
 		0FEB96F45904E0ACEEE8C0D8 /* Pods-TistorySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TistorySample.release.xcconfig"; path = "Target Support Files/Pods-TistorySample/Pods-TistorySample.release.xcconfig"; sourceTree = "<group>"; };
 		368F04E06491DE91F53732A4 /* Pods_TistorySample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TistorySample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266E2522581DAD70047C64F /* RIBsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RIBsExtensions.swift; sourceTree = "<group>"; };
+		C266E25A2581EBFF0047C64F /* MyPostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostRouter.swift; sourceTree = "<group>"; };
+		C266E25B2581EBFF0047C64F /* MyPostBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostBuilder.swift; sourceTree = "<group>"; };
+		C266E25C2581EBFF0047C64F /* MyPostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostInteractor.swift; sourceTree = "<group>"; };
+		C266E2612581EC1A0047C64F /* OtherPostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPostRouter.swift; sourceTree = "<group>"; };
+		C266E2622581EC1A0047C64F /* OtherPostBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPostBuilder.swift; sourceTree = "<group>"; };
+		C266E2632581EC1A0047C64F /* OtherPostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPostInteractor.swift; sourceTree = "<group>"; };
 		C27AD01D2580F77800410664 /* BlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogRouter.swift; sourceTree = "<group>"; };
 		C27AD01E2580F77800410664 /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		C27AD01F2580F77800410664 /* BlogBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogBuilder.swift; sourceTree = "<group>"; };
@@ -100,6 +112,43 @@
 				368F04E06491DE91F53732A4 /* Pods_TistorySample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C266E2552581EB840047C64F /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				C266E2572581EBA90047C64F /* Child */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		C266E2572581EBA90047C64F /* Child */ = {
+			isa = PBXGroup;
+			children = (
+				C266E2582581EBAF0047C64F /* MyPost */,
+				C266E2592581EBB40047C64F /* OtherPost */,
+			);
+			path = Child;
+			sourceTree = "<group>";
+		};
+		C266E2582581EBAF0047C64F /* MyPost */ = {
+			isa = PBXGroup;
+			children = (
+				C266E25A2581EBFF0047C64F /* MyPostRouter.swift */,
+				C266E25B2581EBFF0047C64F /* MyPostBuilder.swift */,
+				C266E25C2581EBFF0047C64F /* MyPostInteractor.swift */,
+			);
+			path = MyPost;
+			sourceTree = "<group>";
+		};
+		C266E2592581EBB40047C64F /* OtherPost */ = {
+			isa = PBXGroup;
+			children = (
+				C266E2612581EC1A0047C64F /* OtherPostRouter.swift */,
+				C266E2622581EC1A0047C64F /* OtherPostBuilder.swift */,
+				C266E2632581EC1A0047C64F /* OtherPostInteractor.swift */,
+			);
+			path = OtherPost;
 			sourceTree = "<group>";
 		};
 		C27AD01C2580F50C00410664 /* Blog */ = {
@@ -218,6 +267,7 @@
 				C286BE542579EA01009BF631 /* Main */,
 				C27AD04C2581B06E00410664 /* Home */,
 				C27AD01C2580F50C00410664 /* Blog */,
+				C266E2552581EB840047C64F /* Post */,
 				C266E2522581DAD70047C64F /* RIBsExtensions.swift */,
 			);
 			path = RIBs;
@@ -359,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C286BE742579ED81009BF631 /* RootViewController.swift in Sources */,
+				C266E25D2581EBFF0047C64F /* MyPostRouter.swift in Sources */,
 				C27AD0242580F77800410664 /* BlogBuilder.swift in Sources */,
 				C286BE7E2579ED91009BF631 /* MainRouter.swift in Sources */,
 				C27AD0232580F77800410664 /* BlogViewController.swift in Sources */,
@@ -366,6 +417,9 @@
 				C27AD03B2580FBC700410664 /* MyBlogBuilder.swift in Sources */,
 				C27AD0532581B08800410664 /* HomeViewController.swift in Sources */,
 				C27AD0422580FC1E00410664 /* OtherBlogBuilder.swift in Sources */,
+				C266E25E2581EBFF0047C64F /* MyPostBuilder.swift in Sources */,
+				C266E25F2581EBFF0047C64F /* MyPostInteractor.swift in Sources */,
+				C266E2652581EC1A0047C64F /* OtherPostBuilder.swift in Sources */,
 				C27AD0552581B08800410664 /* HomeInteractor.swift in Sources */,
 				C286BE762579ED81009BF631 /* RootInteractor.swift in Sources */,
 				C27AD0222580F77800410664 /* BlogRouter.swift in Sources */,
@@ -374,8 +428,10 @@
 				C27AD0542581B08800410664 /* HomeBuilder.swift in Sources */,
 				C286BE862579EE93009BF631 /* AppComponent.swift in Sources */,
 				C286BE812579ED91009BF631 /* MainInteractor.swift in Sources */,
+				C266E2642581EC1A0047C64F /* OtherPostRouter.swift in Sources */,
 				C27AD0412580FC1E00410664 /* OtherBlogRouter.swift in Sources */,
 				C286BE2C2579E7D5009BF631 /* AppDelegate.swift in Sources */,
+				C266E2662581EC1A0047C64F /* OtherPostInteractor.swift in Sources */,
 				C286BE7F2579ED91009BF631 /* MainViewController.swift in Sources */,
 				C286BE2E2579E7D5009BF631 /* SceneDelegate.swift in Sources */,
 				C27AD0252580F77800410664 /* BlogInteractor.swift in Sources */,

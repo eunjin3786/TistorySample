@@ -2,8 +2,7 @@ import RIBs
 import RxSwift
 
 protocol BlogRouting: ViewableRouting {
-    func routeToMyBlog()
-    func routeToOtherBlog()
+
 }
 
 protocol BlogPresentable: Presentable {

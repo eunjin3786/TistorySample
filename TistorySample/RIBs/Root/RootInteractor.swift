@@ -25,6 +25,7 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
 
     override func didBecomeActive() {
         super.didBecomeActive()
+        // 일단 지금은 무조건 Main. (로그인 없으니까)
         router?.routeToMain()
     }
 
