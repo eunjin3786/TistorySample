@@ -4,6 +4,7 @@ import UIKit
 import SnapKit
 
 protocol BlogPresentableListener: class {
+    var posts: [String] { get }
     func blogSettingButtonDidTap()
     func blogSubscriptionToggled()
 }
@@ -11,17 +12,25 @@ protocol BlogPresentableListener: class {
 final class BlogViewController: UIViewController, BlogPresentable, BlogViewControllable {
 
     weak var listener: BlogPresentableListener?
+    
+    @IBOutlet weak var tableView: UITableView!
     weak var subscriptionButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
     }
     
-    func showMyBlog(with posts: [String]) {
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    func showMyBlog() {
         setupBlogSettingButton()
     }
     
-    func showOtherBlog(with posts: [String], isSubscribed: Bool) {
+    func showOtherBlog(isSubscribed: Bool) {
         setupBlogSubscriptionButton(isSubscribed: isSubscribed)
     }
     
@@ -63,4 +72,24 @@ final class BlogViewController: UIViewController, BlogPresentable, BlogViewContr
     private func toggleBlogSubscriptionDidTap() {
         listener?.blogSubscriptionToggled()
     }
+}
+
+extension BlogViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listener?.posts.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell"), let posts = listener?.posts else {
+            return UITableViewCell()
+        }
+        
+        cell.textLabel?.text = posts[indexPath.row]
+        return cell
+    }
+}
+
+
+class PostTableViewCell: UITableViewCell {
+    
 }

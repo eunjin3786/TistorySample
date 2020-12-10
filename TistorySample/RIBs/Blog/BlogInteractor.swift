@@ -8,8 +8,8 @@ protocol BlogRouting: ViewableRouting {
 
 protocol BlogPresentable: Presentable {
     var listener: BlogPresentableListener? { get set }
-    func showMyBlog(with posts: [String])
-    func showOtherBlog(with posts: [String], isSubscribed: Bool)
+    func showMyBlog()
+    func showOtherBlog(isSubscribed: Bool)
     func toggleSubscription(to isSubscribed: Bool)
 }
 
@@ -24,7 +24,9 @@ final class BlogInteractor: PresentableInteractor<BlogPresentable>, BlogInteract
     
     private let myBlogEventStream: PublishSubject<MyBlogEvent>
     private let otherBlogEventStream: PublishSubject<OtherBlogEvent>
-
+    
+    var posts: [String] = []
+    
     init(presenter: BlogPresentable,
          myBlogEventStream: PublishSubject<MyBlogEvent>,
          otherBlogEventStream: PublishSubject<OtherBlogEvent>) {
@@ -44,12 +46,14 @@ final class BlogInteractor: PresentableInteractor<BlogPresentable>, BlogInteract
     
     // MARK: - MyBlogListener
     func myBlogInfoFetched(posts: [String]) {
-        presenter.showMyBlog(with: posts)
+        self.posts = posts
+        presenter.showMyBlog()
     }
     
     // MARK: - OtherBlogListener
     func otherBlogInfoFetched(posts: [String], isSubscribed: Bool) {
-        presenter.showOtherBlog(with: posts, isSubscribed: isSubscribed)
+        self.posts = posts
+        presenter.showOtherBlog(isSubscribed: isSubscribed)
     }
     
     func blogSubscriptionChanged(to isSubscribed: Bool) {
@@ -58,7 +62,7 @@ final class BlogInteractor: PresentableInteractor<BlogPresentable>, BlogInteract
 }
 
 extension BlogInteractor: BlogPresentableListener {
-
+    
     func blogSettingButtonDidTap() {
         myBlogEventStream.onNext(.openSetting)
     }
